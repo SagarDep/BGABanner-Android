@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.stx.fleshfruit"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/fruit"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name=".home.TaocanActivity"
+            android:label="@string/title_activity_taocan" >
+        </activity>
+        <activity
+            android:name=".home.SingleActivity"
+            android:label="@string/title_activity_single" >
+        </activity>
+        <activity
+            android:name=".home.FruitPlatterActivity"
+            android:label="@string/title_activity_fruit_platter" >
+        </activity>
+        <activity
+            android:name="com.stx.fleshfruit.home.ShopcarActivity"
+            android:label="@string/title_activity_shopcar" >
+        </activity>
+    </application>
+
+</manifest>
