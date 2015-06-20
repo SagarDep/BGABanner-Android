@@ -31,6 +31,7 @@ public class JSONParser {
 		}
 		return Taocan;
 	}
+
 	/**
 	 * 购物车
 	 */
@@ -39,8 +40,8 @@ public class JSONParser {
 		List<Map<String, Object>> Shopcart = new ArrayList<Map<String, Object>>();
 		JSONArray array;
 		try {
-//			JSONObject jsonObject = new JSONObject(ShopcartJson);
-//			array = jsonObject.getJSONArray("Goods");
+			// JSONObject jsonObject = new JSONObject(ShopcartJson);
+			// array = jsonObject.getJSONArray("Goods");
 			array = new JSONArray(ShopcartJson);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject shopcart = array.getJSONObject(i);

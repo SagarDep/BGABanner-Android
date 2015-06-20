@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import junit.framework.Protectable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.stx.fleshfruit.HomeActivity;
 import com.stx.fleshfruit.R;
@@ -96,7 +99,7 @@ public class TaocanActivity extends Activity implements OnItemClickListener {
 						JSONObject list = array.getJSONObject(i);
 						s.setGdid(list.getString("gdid"));
 						gdid = s.getGdid();
-//						Log.i("gdid", gdid);
+						// Log.i("gdid", gdid);
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -125,6 +128,8 @@ public class TaocanActivity extends Activity implements OnItemClickListener {
 				.getItemAtPosition(arg2);
 		intent.putExtra("gdid", map.get("gdid"));
 		startActivity(intent);
+		Toast.makeText(getApplicationContext(), "添加购物车成功", Toast.LENGTH_SHORT)
+				.show();
 		// String gdidt = map.get("gdid");
 		// Toast.makeText(getApplicationContext(), gdidt, Toast.LENGTH_SHORT)
 		// .show();

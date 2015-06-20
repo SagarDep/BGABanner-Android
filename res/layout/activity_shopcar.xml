@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/cancle"
-            android:layout_width="18dp"
-            android:layout_height="26dp"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="25dp"
@@ -33,7 +33,6 @@
             android:text="我的水果篮"
             android:textColor="#ffffff"
             android:textSize="20sp" />
-
     </RelativeLayout>
 
     <ListView
@@ -47,5 +46,53 @@
         android:paddingLeft="6dp"
         android:paddingRight="6dp" >
     </ListView>
+
+    <LinearLayout
+        android:id="@+id/menu_shopcart"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:paddingBottom="3dip" >
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/delete"
+            android:layout_marginTop="10dp" 
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="合计："
+            android:textSize="20sp" 
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/total_prices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="价格"
+            android:textColor="#FF3030"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:text="去结算"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 
 </RelativeLayout>

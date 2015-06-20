@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FleshFruit</string>
+    <string name="app_name">鲜果派</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -13,5 +13,6 @@
     <string name="title_activity_single">SingleActivity</string>
     <string name="title_activity_fruit_platter">FruitPlatterActivity</string>
     <string name="title_activity_shopcar">ShopcarActivity</string>
+    <string name="title_activity_shop_order">ShopOrderActivity</string>
 
 </resources>

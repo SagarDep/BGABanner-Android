@@ -15,16 +15,15 @@ import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.stx.fleshfruit.util.IPAddress;
 
 public class LoginActivity extends Activity {
@@ -32,6 +31,8 @@ public class LoginActivity extends Activity {
 	private EditText login_password;
 	private Button login_Button;
 	public static String JSESSIONID;
+	private static ProgressDialog dialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,10 +43,16 @@ public class LoginActivity extends Activity {
 		login_Button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				if (dialog == null) {
+					dialog = new ProgressDialog(LoginActivity.this);
+				}
+				dialog.setTitle("请等待");
+				dialog.setMessage("登录中...");
+				dialog.setCancelable(false);
+				dialog.show();
 				// 判断用户输入的帐号和密码是否为空
 				if ("".equals(login_username.getText().toString())
-						|| "".equals(login_password.getText().toString())) // 判断
+						&& "".equals(login_password.getText().toString())) // 判断
 																			// 帐号和密码
 				{
 					new AlertDialog.Builder(LoginActivity.this)
@@ -56,10 +63,11 @@ public class LoginActivity extends Activity {
 							.setMessage("帐号或者密码不能为空，\n请输入后再登录！").create()
 							.show();
 				} else {
+
 					new AsyncTask<String, Void, Object>() {
 						@Override
 						protected Object doInBackground(String... params) {
-							String result = "";
+							String result = "服务器连接错误！"; // 与服务器交互失败，默认值
 							try {
 								// 创建连接
 								HttpClient httpClient = new DefaultHttpClient();
@@ -78,14 +86,14 @@ public class LoginActivity extends Activity {
 								post.setEntity(new UrlEncodedFormEntity(
 										paramList, HTTP.UTF_8));
 								// 发送HttpPost请求，并返回HttpResponse对象
-								HttpResponse httpResponse = httpClient
+								HttpResponse response = httpClient
 										.execute(post);
 								// 判断请求响应状态码，状态码为200表示服务端成功响应了客户端的请求
-								if (httpResponse.getStatusLine()
-										.getStatusCode() == 200) {
+								if (response.getStatusLine().getStatusCode() == 200) {
 									// 获取返回结果
-									result = EntityUtils.toString(httpResponse
+									result = EntityUtils.toString(response
 											.getEntity());
+									JSESSIONID = result;
 								}
 							} catch (Exception e) {
 								e.printStackTrace();
@@ -96,8 +104,20 @@ public class LoginActivity extends Activity {
 						// 判断用户登录是否正确并进行页面跳转
 						protected void onPostExecute(Object result) {
 							super.onPostExecute(result);
-							// 判断 帐号和密码
-							if (((String) result).startsWith("登陆失败")) {
+
+							if (result.toString().equals("服务器连接错误！")) {
+								new AlertDialog.Builder(LoginActivity.this)
+										.setIcon(
+												getResources()
+														.getDrawable(
+																R.drawable.login_error_icon))
+										.setTitle("登录失败")
+										.setMessage("服务器连接错误，\n请检查网络！")
+										.create().show();
+								if (dialog != null) {
+									dialog.dismiss();
+								}
+							} else if (result.toString().equals("登录失败")) {
 								new AlertDialog.Builder(LoginActivity.this)
 										.setIcon(
 												getResources()
@@ -106,10 +126,11 @@ public class LoginActivity extends Activity {
 										.setTitle("登录失败")
 										.setMessage("帐号或者密码不正确，\n请检查后重新输入！")
 										.create().show();
+								if (dialog != null) {
+									dialog.dismiss();
+								}
 
 							} else {
-								JSESSIONID=result.toString();
-								Log.i("JSESSIONID", JSESSIONID);
 								Intent intent = new Intent(LoginActivity.this,
 										HomeActivity.class);
 								startActivity(intent);
@@ -128,6 +149,7 @@ public class LoginActivity extends Activity {
 	public void register(View view) {
 		Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 		startActivity(intent);
+		LoginActivity.this.finish();
 	}
 
 	// 点击返回主界面

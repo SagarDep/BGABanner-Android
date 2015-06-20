@@ -49,8 +49,12 @@
             android:label="@string/title_activity_fruit_platter" >
         </activity>
         <activity
-            android:name="com.stx.fleshfruit.home.ShopcarActivity"
+            android:name=".home.ShopcarActivity"
             android:label="@string/title_activity_shopcar" >
+        </activity>
+        <activity
+            android:name="com.stx.fleshfruit.home.ShopOrderActivity"
+            android:label="@string/title_activity_shop_order" >
         </activity>
     </application>
 

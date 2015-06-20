@@ -21,6 +21,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -35,8 +38,8 @@ public class ShopcarActivity extends Activity {
 	private SimpleAdapter sa;
 	private Handler handler;
 	private String result;
-
-	// private TextView prices;
+	private ImageView delete;
+	private Button submit, backup;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,13 @@ public class ShopcarActivity extends Activity {
 		setContentView(R.layout.activity_shopcar);
 		lv = (ListView) findViewById(R.id.shopcar_listView);
 		Shopcart = new ArrayList<Map<String, Object>>();
+		delete = (ImageView) findViewById(R.id.delete);
+		submit = (Button) findViewById(R.id.submit);
+		ClickListener cl = new ClickListener();
+
+		delete.setOnClickListener(cl);
+		submit.setOnClickListener(cl);
+
 		sa = new SimpleAdapter(this, Shopcart, R.layout.layout_shopcart,
 				new String[] { "image", "gname", "price" }, new int[] {
 						R.drawable.photo, R.id.name, R.id.price });
@@ -112,5 +122,24 @@ public class ShopcarActivity extends Activity {
 		startActivity(intent);
 		ShopcarActivity.this.finish();
 
+	}
+
+	// 事件点击监听器
+	private final class ClickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.delete: // 删除
+
+				break;
+			case R.id.submit: // 结算
+				Intent intent = new Intent(ShopcarActivity.this,
+						ShopOrderActivity.class);
+				startActivity(intent);
+				ShopcarActivity.this.finish();
+				break;
+			}
+		}
 	}
 }

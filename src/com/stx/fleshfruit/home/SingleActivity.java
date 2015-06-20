@@ -39,6 +39,8 @@ public class SingleActivity extends Activity {
 						R.drawable.photo, R.id.name, R.id.price,
 						R.id.salesvolume });
 		lv.setAdapter(sa);
+		// 设置listview的点击事件
+		// lv.setOnItemClickListener(this);
 		new Thread() {
 
 			@Override
@@ -86,6 +88,7 @@ public class SingleActivity extends Activity {
 		};
 	}
 
+	// 返回主界面
 	public void cancle(View v) {
 		Intent intent = new Intent(SingleActivity.this, HomeActivity.class);
 		startActivity(intent);

@@ -22,8 +22,8 @@
 
             <ImageButton
                 android:id="@+id/cancle"
-                android:layout_width="18dp"
-                android:layout_height="26dp"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="12dp"

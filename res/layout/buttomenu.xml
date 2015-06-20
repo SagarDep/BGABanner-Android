@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:paddingTop="3dip" >
+
+        <LinearLayout
+            android:id="@+id/menu_home"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/menu_home_img"
+                android:layout_width="wrap_content"
+                android:layout_height="27dip"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/home1" />
+
+            <TextView
+                android:id="@+id/menu_home_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="首页"
+                android:textColor="#2E2E2E"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_favorite"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/menu_favorite_img"
+                android:layout_width="wrap_content"
+                android:layout_height="27dip"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/favorite" />
+
+            <TextView
+                android:id="@+id/menu_favorite_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="收藏"
+                android:textColor="#2e2e2e"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_shopping_cart"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/menu_shopping_cart_img"
+                android:layout_width="wrap_content"
+                android:layout_height="27dip"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/gouwuche" />
+
+            <TextView
+                android:id="@+id/menu_shopping_cart_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="购物车"
+                android:textColor="#2e2e2e"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_personal_cart"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/menu_personal_img"
+                android:layout_width="wrap_content"
+                android:layout_height="27dip"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/person" />
+
+            <TextView
+                android:id="@+id/menu_personal_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="我"
+                android:textColor="#2e2e2e"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
