@@ -22,7 +22,7 @@
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/add"
+        android:id="@+id/addshopcar"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
@@ -58,7 +58,7 @@
         android:layout_height="20dp"
         android:layout_alignBottom="@+id/salesvolume"
         android:layout_marginRight="14dp"
-        android:layout_toLeftOf="@+id/add"
+        android:layout_toLeftOf="@+id/addshopcar"
         android:background="@drawable/heart" />
 
     <TextView

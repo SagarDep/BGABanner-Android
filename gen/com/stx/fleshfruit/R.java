@@ -77,10 +77,10 @@ public final class R {
     public static final class id {
         public static final int Login_button=0x7f0a0025;
         public static final int action_settings=0x7f0a0048;
-        public static final int add=0x7f0a0043;
         public static final int addressNext=0x7f0a0031;
         public static final int addressRelative=0x7f0a002e;
         public static final int addresseeName=0x7f0a002f;
+        public static final int addshopcar=0x7f0a0043;
         public static final int cancle=0x7f0a0002;
         public static final int checkOutAllPrice=0x7f0a0034;
         public static final int dandian=0x7f0a0010;

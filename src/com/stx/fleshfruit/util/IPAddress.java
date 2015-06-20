@@ -2,7 +2,7 @@ package com.stx.fleshfruit.util;
 
 public class IPAddress {
 	// 对所有接口地址进行封装
-	public static final String HOST = "http://192.168.253.1:8088/XianGuoPaiServer";
+	public static final String HOST = "http://t354573924.oicp.net:17425/XianGuoPaiServer";
 	public static int RESPONSE_OK = 200;
 	public static int RESPONSE_ERROR = 500;
 	public static final String LOGIN = HOST + "/Login";
